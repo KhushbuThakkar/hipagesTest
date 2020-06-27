@@ -1,8 +1,10 @@
-version: '3'
+version: "3"
 
 services:
   ui:
-    entrypoint: ["npm", "start"]
+    # entrypoint: ["npm", "start"]
+    command: >
+      sh -c "npm install && npm start"
     environment:
       NODE_ENV: development
     image: node:10.15-alpine
@@ -10,10 +12,14 @@ services:
       - "3000:3000"
     volumes:
       - ./ui:/opt/ui
+      - /opt/ui/node_modules
     working_dir: /opt/ui
+    stdin_open: true
 
   server:
-    entrypoint: ["npm", "start"]
+    # entrypoint: ["npm", "start"]
+    command: >
+      sh -c "npm install && npm start"
     environment:
       NODE_ENV: development
     image: node:10.15-alpine
@@ -23,8 +29,9 @@ services:
       - "8080:8080"
     volumes:
       - ./server:/opt/server
+      - /opt/server/node_modules
     working_dir: /opt/server
-  
+
   database:
     image: mysql:5.6
     environment:

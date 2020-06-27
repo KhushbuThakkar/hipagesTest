@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render correctly Loader component 1`] = `
+<div
+  className="css-k7cqub"
+>
+  <div
+    className="css-1eid011"
+  >
+    <div
+      className="css-1ssiguq"
+    />
+    <div
+      className="css-gfu9sg"
+    />
+    <div
+      className="css-pgx922"
+    />
+  </div>
+</div>
+`;

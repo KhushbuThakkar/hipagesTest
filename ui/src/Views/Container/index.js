@@ -7,9 +7,9 @@ import { getJobs, changeJobStatus } from "../../Actions/jobActions";
 
 import Card from "../../Components/Card";
 
-import styles from "../../styles.css";
+import "../../styles.css";
 
-const { Header, Content, Sider } = Layout;
+const { Content } = Layout;
 
 const Container = ({ selected, ...rest }) => {
   const { getJobs, changeJobStatus, statusData, jobsData } = rest;
@@ -17,11 +17,11 @@ const Container = ({ selected, ...rest }) => {
 
   useEffect(() => {
     getJobs(selected);
-  }, [selected]);
+  }, [selected, getJobs]);
 
   useEffect(() => {
     getJobs(selected);
-  }, [statusData.data]);
+  }, [selected, getJobs, statusData.data]);
 
   useEffect(() => {
     setJobs(jobsData || []);
@@ -31,10 +31,7 @@ const Container = ({ selected, ...rest }) => {
     <Layout className="layout">
       {jobs && jobs.length === 0 ? (
         <div className="full-height">
-          <Empty
-            description={false}
-            description={<span>No Records Found</span>}
-          />
+          <Empty description={<span>No Records Found</span>} />
         </div>
       ) : (
         <Content className="layout-background">

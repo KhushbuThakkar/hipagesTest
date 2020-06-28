@@ -1,13 +1,13 @@
 import React from "react";
-import { Avatar, Card, Divider, Descriptions, Typography } from "antd";
+import { Avatar, Card, Divider, Typography } from "antd";
 import { ActionItems } from "../../Views/Container/actionItems";
 import JobIcon from "../Svgs/JobIcon";
-import styles from "../../styles.css";
+import "../../styles.css";
 import LocationIcon from "../Svgs/locationIcon";
 import PhoneIcon from "../Svgs/PhoneIcon";
 import { formatDate, formatPrice } from "../../Utils/format";
 import MailIcon from "../Svgs/MailIcon";
-const { Text, Title } = Typography;
+const { Text } = Typography;
 
 const CardHeader = ({ initial, data }) => {
   const fname = data.contact_name.split(" ")[0] || "";

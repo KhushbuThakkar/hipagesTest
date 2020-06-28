@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Menu } from "antd";
-import styles from "../../styles.css";
+import "../../styles.css";
 
 const CustomTabs = ({ onSelect }) => {
   const [selected, setselected] = useState("new");

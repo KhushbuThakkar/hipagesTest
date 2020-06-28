@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "antd";
-import styles from "../../styles.css";
+import "../../styles.css";
 
 const CustomButton = ({ children, ...rest }) => {
   return (

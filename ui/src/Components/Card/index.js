@@ -1,7 +1,7 @@
 import React from "react";
 import { Avatar, Card, Divider, Descriptions, Typography } from "antd";
 import { ActionItems } from "../../Views/Container/actionItems";
-import JobIcon from "../Svgs";
+import JobIcon from "../Svgs/JobIcon";
 import styles from "../../styles.css";
 import LocationIcon from "../Svgs/locationIcon";
 import PhoneIcon from "../Svgs/PhoneIcon";

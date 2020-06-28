@@ -10,18 +10,22 @@ import Card from "../../Components/Card";
 const { Header, Content, Sider } = Layout;
 
 const Container = ({ selected, ...rest }) => {
-  const { getJobs, changeJobStatus } = rest;
+  const { getJobs, changeJobStatus, statusData, jobsData } = rest;
   const [jobs, setJobs] = useState([]);
-  const renderInvited = () => {};
 
   useEffect(() => {
     getJobs(selected);
-  }, [getJobs, selected]);
+  }, [selected]);
 
   useEffect(() => {
-    setJobs(rest.jobs.jobs || []);
+    getJobs(selected);
+  }, [statusData.data]);
+
+  useEffect(() => {
+    // console.log(jobsData.jobs, "jobsData is");
+    setJobs(jobsData || []);
     // setloading(props.campaigns.loading);
-  }, [rest.jobs]);
+  }, [jobsData]);
 
   return (
     <Layout style={{ padding: "0 24px 24px" }}>
@@ -63,7 +67,8 @@ Container.defaultProps = {
 
 const mapStateToProps = (state) => {
   return {
-    jobs: state.jobs || {},
+    jobsData: state.jobs.jobs || {},
+    statusData: state.jobs.status || {},
   };
 };
 

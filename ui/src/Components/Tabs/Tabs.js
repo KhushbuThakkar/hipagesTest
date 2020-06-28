@@ -21,7 +21,7 @@ const CustomTabs = ({ onSelect }) => {
       <Menu.Item key="new" icon={<MailOutlined />}>
         Invited
       </Menu.Item>
-      <Menu.Item key="approved" icon={<MailOutlined />}>
+      <Menu.Item key="accepted" icon={<MailOutlined />}>
         Accepted
       </Menu.Item>
       <Menu.Item key="rejected" icon={<MailOutlined />}>

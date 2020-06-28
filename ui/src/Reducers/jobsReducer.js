@@ -11,6 +11,7 @@ const initialState = {
   loading: false,
   jobs: [],
   errors: null,
+  status: {},
 };
 
 export default function (state = initialState, action) {

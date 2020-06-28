@@ -33,3 +33,7 @@ $ docker-compose up -d
 - pagination
 - lazy loading of records to improve performance and loading time
 - test cases (didn't have time to finish with test cases)
+
+### end result
+
+![end result](https://github.com/KhushbuThakkar/hipagesTest/blob/master/chrome-capture.gif?raw=true)

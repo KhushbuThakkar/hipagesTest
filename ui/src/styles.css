@@ -13,7 +13,7 @@
 }
 
 .card.avatar {
-    background-color: orange;
+    background-color: #FF9E42;
     vertical-align: "middle";
     margin-right: 10px;
 }
@@ -42,14 +42,14 @@
 }
 
 .button.ant-btn-primary {
-    background-color: orange;
-    border-color: orange;
+    background-color: #FF7A10;
+    border-color: #FF7A10;
 }
 
 .button.ant-btn-primary:active,
 .button.ant-btn-primary:hover {
-    background-color: orange;
-    border-color: orange;
+    background-color: #FF7A10;
+    border-color: #FF7A10;
 }
 
 .action .price {

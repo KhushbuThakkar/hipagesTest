@@ -7,7 +7,6 @@
 //     console.log(`Server is listening at http://localhost:${port}`);
 // });
 
-console.log("well well");
 let db = require("./db");
 
 // import * as connection from "./db";

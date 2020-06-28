@@ -24,8 +24,6 @@ function formatAMPM(date) {
   return strTime;
 }
 
-// console.log(formatAMPM(new Date()));
-
 const formatDate = (date) => {
   const d = new Date(date);
   const currentMonth = monthNames[d.getMonth()];

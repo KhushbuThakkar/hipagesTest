@@ -10,8 +10,6 @@ const CustomTabs = ({ onSelect }) => {
     onSelect(e.key);
   };
 
-  console.log(selected, "selected is");
-
   return (
     <Menu
       onClick={handleClick}

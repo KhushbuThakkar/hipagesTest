@@ -6,7 +6,6 @@ exports.list_jobs = function (req, res) {
   var status = req.params.status;
 
   Job.getJobs(status, function (err, jobs) {
-    console.log("controller");
     if (err) res.send({ err });
     // console.log("res", jobs);
     res.send({ jobs: jobs });
@@ -14,7 +13,6 @@ exports.list_jobs = function (req, res) {
 };
 
 exports.change_job_status = function (req, res) {
-  console.log("req", req.body);
   var id = req.params.id;
   var status = req.body.status;
 

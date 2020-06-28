@@ -56,16 +56,18 @@ const CustomCard = ({ data, changeJobStatus }) => {
 
       <Divider />
 
-      <div className="cardRow third">
-        <div className="category">
-          <PhoneIcon size={20} />
-          {data.contact_phone}
+      {!isNew && (
+        <div className="cardRow third">
+          <div className="category orange">
+            <PhoneIcon size={20} />
+            {data.contact_phone}
+          </div>
+          <div className="category orange">
+            <MailIcon size={20} />
+            {data.contact_email}
+          </div>
         </div>
-        <div className="category">
-          <MailIcon size={20} />
-          {data.contact_email}
-        </div>
-      </div>
+      )}
       <div>{data.description}</div>
 
       {isNew && (

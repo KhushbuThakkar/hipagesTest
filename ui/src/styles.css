@@ -1,0 +1,60 @@
+.category {
+    display: flex;
+}
+
+.category svg {
+    margin: 0 10px;
+}
+
+
+.card.header {
+    display: flex;
+    align-items: center;
+}
+
+.card.avatar {
+    background-color: orange;
+    vertical-align: "middle";
+    margin-right: 10px;
+}
+
+
+.card.header.subtext {
+    display: block;
+}
+
+
+/* card row */
+
+.cardRow {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.cardRow.second {
+    width: 50%;
+}
+
+.cardRow.third {
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.button.ant-btn-primary {
+    background-color: orange;
+    border-color: orange;
+}
+
+.button.ant-btn-primary:active,
+.button.ant-btn-primary:hover {
+    background-color: orange;
+    border-color: orange;
+}
+
+
+
+.action .price {
+    margin-left: 20px;
+    font-weight: 500;
+}

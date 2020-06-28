@@ -7,7 +7,7 @@ export const ActionItems = ({ jobId, onChangeStatus }) => {
       <Button type="primary" onClick={() => onChangeStatus(jobId, "accepted")}>
         Accept
       </Button>
-      <Button type="" onClick={() => onChangeStatus(jobId, "rejected")}>
+      <Button type="" onClick={() => onChangeStatus(jobId, "declined")}>
         Reject
       </Button>
     </>

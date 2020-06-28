@@ -22,9 +22,7 @@ const Container = ({ selected, ...rest }) => {
   }, [statusData.data]);
 
   useEffect(() => {
-    // console.log(jobsData.jobs, "jobsData is");
     setJobs(jobsData || []);
-    // setloading(props.campaigns.loading);
   }, [jobsData]);
 
   return (

@@ -52,9 +52,25 @@
     border-color: orange;
 }
 
-
-
 .action .price {
     margin-left: 20px;
     font-weight: 500;
+}
+
+.full-height {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* tabs */
+
+.tabs {
+    display: flex;
+}
+
+.tabs li {
+    flex: 1;
+    text-align: center;
 }

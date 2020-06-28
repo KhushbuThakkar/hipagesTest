@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 
-import { Layout } from "antd";
+import { Layout, Empty } from "antd";
 import { PropTypes } from "prop-types";
 import { getJobs, changeJobStatus } from "../../Actions/jobActions";
 
@@ -27,23 +27,32 @@ const Container = ({ selected, ...rest }) => {
 
   return (
     <Layout style={{ padding: "0 24px 24px" }}>
-      <Content
-        className="site-layout-background"
-        style={{
-          padding: 24,
-          margin: 0,
-          minHeight: 280,
-        }}
-      >
-        {jobs &&
-          jobs.map((singleCard, key) => (
-            <Card
-              data={singleCard}
-              key={key}
-              changeJobStatus={changeJobStatus}
-            />
-          ))}
-      </Content>
+      {jobs && jobs.length === 0 ? (
+        <div className="full-height">
+          <Empty
+            description={false}
+            description={<span>No Records Found</span>}
+          />
+        </div>
+      ) : (
+        <Content
+          className="site-layout-background"
+          style={{
+            padding: 24,
+            margin: 0,
+            minHeight: 280,
+          }}
+        >
+          {jobs &&
+            jobs.map((singleCard, key) => (
+              <Card
+                data={singleCard}
+                key={key}
+                changeJobStatus={changeJobStatus}
+              />
+            ))}
+        </Content>
+      )}
     </Layout>
   );
 };

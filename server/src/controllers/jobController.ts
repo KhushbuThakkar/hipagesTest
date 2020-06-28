@@ -18,15 +18,6 @@ exports.change_job_status = function (req, res) {
 
   Job.editJob(id, status, function (err, job) {
     if (err) res.send({ err });
-    // console.log("res", jobs);
     res.send({ data: job });
   });
 };
-
-// exports.read_a_task = function(req, res) {
-//   Task.getTaskById(req.params.taskId, function(err, task) {
-//     if (err)
-//       res.send(err);
-//     res.json(task);
-//   });
-// };

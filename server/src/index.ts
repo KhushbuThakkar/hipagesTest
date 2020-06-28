@@ -17,27 +17,13 @@ const express = require("express"),
 const port = process.env.PORT || 8080;
 let cors = require("cors");
 
-// const mysql = require("mysql");
-// // connection configurations
-// const mc = mysql.createConnection({
-//   host: "localhost",
-//   user: "root",
-//   password: "",
-//   database: "mydb",
-// });
-
-// // connect to database
-// mc.connect();
-
-// db.connect();
-
 app.set("json spaces", 4);
 app.disable("etag");
 app.use(cors());
 app.use(bodyParser.json({ limit: "1000mb" }));
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get("/", (req, res) => res.redirect("/api/invited"));
+app.get("/", (req, res) => "API for Hipages");
 
 app.listen(port);
 

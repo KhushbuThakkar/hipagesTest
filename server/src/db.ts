@@ -8,7 +8,6 @@ const connection = mysql.createConnection({
   port: "3306",
   user: dbConfig.USER,
   password: dbConfig.PASSWORD,
-  // connection: "mysql",
   connectionLimit: 10,
 });
 

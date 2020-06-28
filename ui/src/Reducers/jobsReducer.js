@@ -1,32 +1,32 @@
 import {
-  GET_CAMPAIGNS_SUCCESS,
-  GET_CAMPAIGNS_ERRORS,
-  GET_CAMPAIGNS_LOADING,
+  GET_JOBS_SUCCESS,
+  GET_JOBS_ERRORS,
+  GET_JOBS_LOADING,
 } from "../Actions/types";
 
 const initialState = {
   loading: false,
-  campaigns: [],
+  teams: [],
   errors: null,
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case GET_CAMPAIGNS_SUCCESS:
+    case GET_JOBS_SUCCESS:
       return {
         ...state,
         loading: false,
-        campaigns: action.payload,
+        jobs: action.payload.jobs,
       };
 
-    case GET_CAMPAIGNS_ERRORS:
+    case GET_JOBS_ERRORS:
       return {
         ...state,
         loading: false,
-        errors: action.payload.data,
+        errors: action.payload.errors,
       };
 
-    case GET_CAMPAIGNS_LOADING:
+    case GET_JOBS_LOADING:
       return {
         ...state,
         loading: true,

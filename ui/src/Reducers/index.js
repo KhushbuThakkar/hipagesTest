@@ -1,8 +1,6 @@
 import { combineReducers } from "redux";
-import campaignsReducer from "./campaignsReducer";
-import teamsReducer from "./teamsReducer";
+import jobsReducer from "./jobsReducer";
 
 export default combineReducers({
-  campaigns: campaignsReducer,
-  teams: teamsReducer
+  jobs: jobsReducer,
 });

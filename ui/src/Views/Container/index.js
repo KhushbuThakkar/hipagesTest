@@ -1,35 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
+
 import { Layout } from "antd";
+import { PropTypes } from "prop-types";
+import { getJobs } from "../../Actions/jobActions";
+
 import Card from "../../Components/Card";
 
 const { Header, Content, Sider } = Layout;
 
-export default function Container({ selected }) {
-  console.log(selected, " ** selected is");
+const Container = ({ selected, ...rest }) => {
+  const { getJobs } = rest;
+  const [jobs, setJobs] = useState([]);
   const renderInvited = () => {};
 
-  const cards = [
-    {
-      id: 1,
-      name: "Bill GAtes",
-      suburb: "paramatta",
-      category: "Painters",
-      description: "",
-      price: "$120",
-      status: "accepted",
-    },
-    {
-      id: 2,
-      name: "Will GAtes",
-      suburb: "paramatta",
-      category: "Painters",
-      description: "",
-      price: "$100",
-      status: "invited",
-    },
-  ];
-
   const selectedCards = cards.filter((item) => item.status === selected);
+
+  useEffect(() => {
+    getJobs();
+  }, [getJobs]);
+
+  useEffect(() => {
+    setJobs(rest.jobs.jobs || []);
+    // setloading(props.campaigns.loading);
+  }, [rest.jobs]);
+
   return (
     <Layout style={{ padding: "0 24px 24px" }}>
       <Content
@@ -40,10 +35,31 @@ export default function Container({ selected }) {
           minHeight: 280,
         }}
       >
-        {selectedCards.map((singleCard, key) => (
-          <Card data={singleCard} key={key} />
-        ))}
+        {jobs &&
+          jobs.map((singleCard, key) => <Card data={singleCard} key={key} />)}
       </Content>
     </Layout>
   );
-}
+};
+
+Container.propTypes = {
+  getJobs: PropTypes.func.isRequired,
+
+  jobs: PropTypes.shape({
+    jobs: PropTypes.array,
+    loading: PropTypes.bool,
+    errors: PropTypes.objectOf(PropTypes.any),
+  }),
+};
+
+Container.defaultProps = {
+  jobs: {},
+};
+
+const mapStateToProps = (state) => {
+  return {
+    jobs: state.jobs || {},
+  };
+};
+
+export default connect(mapStateToProps, { getJobs })(Container);

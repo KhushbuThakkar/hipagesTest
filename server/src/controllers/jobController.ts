@@ -2,12 +2,12 @@
 
 var Job = require("../models/jobModel");
 
-exports.list_all_tasks = function (req, res) {
-  Job.getJobs(function (err, task) {
+exports.list_jobs = function (req, res) {
+  Job.getJobs(function (err, jobs) {
     console.log("controller");
-    if (err) res.send(err);
-    console.log("res", task);
-    res.send(task);
+    if (err) res.send({ err });
+    // console.log("res", jobs);
+    res.send({ jobs: jobs });
   });
 };
 

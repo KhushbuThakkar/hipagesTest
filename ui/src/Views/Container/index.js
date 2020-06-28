@@ -3,22 +3,20 @@ import { connect } from "react-redux";
 
 import { Layout } from "antd";
 import { PropTypes } from "prop-types";
-import { getJobs } from "../../Actions/jobActions";
+import { getJobs, changeJobStatus } from "../../Actions/jobActions";
 
 import Card from "../../Components/Card";
 
 const { Header, Content, Sider } = Layout;
 
 const Container = ({ selected, ...rest }) => {
-  const { getJobs } = rest;
+  const { getJobs, changeJobStatus } = rest;
   const [jobs, setJobs] = useState([]);
   const renderInvited = () => {};
 
-  const selectedCards = cards.filter((item) => item.status === selected);
-
   useEffect(() => {
-    getJobs();
-  }, [getJobs]);
+    getJobs(selected);
+  }, [getJobs, selected]);
 
   useEffect(() => {
     setJobs(rest.jobs.jobs || []);
@@ -36,7 +34,13 @@ const Container = ({ selected, ...rest }) => {
         }}
       >
         {jobs &&
-          jobs.map((singleCard, key) => <Card data={singleCard} key={key} />)}
+          jobs.map((singleCard, key) => (
+            <Card
+              data={singleCard}
+              key={key}
+              changeJobStatus={changeJobStatus}
+            />
+          ))}
       </Content>
     </Layout>
   );
@@ -44,6 +48,7 @@ const Container = ({ selected, ...rest }) => {
 
 Container.propTypes = {
   getJobs: PropTypes.func.isRequired,
+  changeJobStatus: PropTypes.func.isRequired,
 
   jobs: PropTypes.shape({
     jobs: PropTypes.array,
@@ -62,4 +67,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { getJobs })(Container);
+export default connect(mapStateToProps, { getJobs, changeJobStatus })(
+  Container
+);

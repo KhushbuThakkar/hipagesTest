@@ -7,7 +7,7 @@ import {
 } from "@ant-design/icons";
 
 const CustomTabs = ({ onSelect }) => {
-  const [selected, setselected] = useState("invited");
+  const [selected, setselected] = useState("new");
 
   const handleClick = (e) => {
     setselected(e.key);
@@ -18,11 +18,14 @@ const CustomTabs = ({ onSelect }) => {
 
   return (
     <Menu onClick={handleClick} selectedKeys={[selected]} mode="horizontal">
-      <Menu.Item key="invited" icon={<MailOutlined />}>
+      <Menu.Item key="new" icon={<MailOutlined />}>
         Invited
       </Menu.Item>
-      <Menu.Item key="accepted" icon={<MailOutlined />}>
+      <Menu.Item key="approved" icon={<MailOutlined />}>
         Accepted
+      </Menu.Item>
+      <Menu.Item key="rejected" icon={<MailOutlined />}>
+        Rejected
       </Menu.Item>
     </Menu>
   );

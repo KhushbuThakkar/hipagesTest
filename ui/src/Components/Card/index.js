@@ -1,5 +1,6 @@
 import React from "react";
 import { Avatar, Button, Card, Divider } from "antd";
+import { ActionItems } from "../../Views/Container/actionItems";
 
 const CardHeader = ({ initial }) => {
   return (
@@ -13,14 +14,18 @@ const CardHeader = ({ initial }) => {
     </>
   );
 };
-export default function CustomCard({ data }) {
+export default function CustomCard({ data, changeJobStatus }) {
   return (
     <Card>
       <CardHeader initial="b" />
-      {data.name}
+      {data.contact_name}
+      {data.created_at}
       <Divider />
-
+      Job Id: {data.id}
       <Divider />
+      {data.description}
+      <Divider />
+      <ActionItems jobId={data.id} onChangeStatus={changeJobStatus} />
     </Card>
   );
 }

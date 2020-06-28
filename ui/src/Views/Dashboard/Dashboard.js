@@ -3,7 +3,7 @@ import Tabs from "../../Components/Tabs/Tabs";
 import Container from "../Container";
 
 export default function Dashboard() {
-  const [selected, setSelected] = useState("invited");
+  const [selected, setSelected] = useState("new");
   return (
     <div>
       <Tabs onSelect={setSelected} />

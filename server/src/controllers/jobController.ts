@@ -3,11 +3,25 @@
 var Job = require("../models/jobModel");
 
 exports.list_jobs = function (req, res) {
-  Job.getJobs(function (err, jobs) {
+  var status = req.params.status;
+
+  Job.getJobs(status, function (err, jobs) {
     console.log("controller");
     if (err) res.send({ err });
     // console.log("res", jobs);
     res.send({ jobs: jobs });
+  });
+};
+
+exports.change_job_status = function (req, res) {
+  console.log("req", req.body);
+  var id = req.params.id;
+  var status = req.body.status;
+
+  Job.editJob(id, status, function (err, job) {
+    if (err) res.send({ err });
+    // console.log("res", jobs);
+    res.send({ data: job });
   });
 };
 

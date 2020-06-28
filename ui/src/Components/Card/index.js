@@ -28,24 +28,24 @@ const CardHeader = ({ initial, data }) => {
   );
 };
 
-export default function CustomCard({ data, changeJobStatus }) {
+const CustomCard = ({ data, changeJobStatus }) => {
   const renderPrice = () => (
     <Text className="price">{formatPrice(data.price)} Lead Invitation</Text>
   );
+
   const isNew = data.status === "new";
 
   return (
     <Card>
-      <div className=""></div>
       <CardHeader initial="b" data={data} />
 
       <Divider />
+
       <div className="cardRow second">
         <div className="category">
           <LocationIcon size={20} />
           {data.location}
         </div>
-
         <div className="category">
           <JobIcon size={20} />
           {data.category}
@@ -53,7 +53,9 @@ export default function CustomCard({ data, changeJobStatus }) {
         <div className="">Job Id: {data.id}</div>
         {!isNew && <div>{renderPrice()}</div>}
       </div>
+
       <Divider />
+
       <div className="cardRow third">
         <div className="category">
           <PhoneIcon size={20} />
@@ -71,11 +73,12 @@ export default function CustomCard({ data, changeJobStatus }) {
           <Divider />
           <div className="action">
             <ActionItems jobId={data.id} onChangeStatus={changeJobStatus} />
-
             <Text className="price">{renderPrice()}</Text>
           </div>
         </>
       )}
     </Card>
   );
-}
+};
+
+export default CustomCard;

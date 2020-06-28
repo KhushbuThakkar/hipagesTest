@@ -7,6 +7,8 @@ import { getJobs, changeJobStatus } from "../../Actions/jobActions";
 
 import Card from "../../Components/Card";
 
+import styles from "../../styles.css";
+
 const { Header, Content, Sider } = Layout;
 
 const Container = ({ selected, ...rest }) => {
@@ -26,7 +28,7 @@ const Container = ({ selected, ...rest }) => {
   }, [jobsData]);
 
   return (
-    <Layout style={{ padding: "0 24px 24px" }}>
+    <Layout className="layout">
       {jobs && jobs.length === 0 ? (
         <div className="full-height">
           <Empty
@@ -35,14 +37,7 @@ const Container = ({ selected, ...rest }) => {
           />
         </div>
       ) : (
-        <Content
-          className="site-layout-background"
-          style={{
-            padding: 24,
-            margin: 0,
-            minHeight: 280,
-          }}
-        >
+        <Content className="layout-background">
           {jobs &&
             jobs.map((singleCard, key) => (
               <Card
